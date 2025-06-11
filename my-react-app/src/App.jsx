@@ -12,7 +12,8 @@ import './styles/index.css';
 // import MyComponent from './MyComponent';
 // import Counter from './Counter/Counter';
 // import OnChange from './LearningOnChange/OnChange.jsx'
-import ToDoApp from './ToDoApp/ToDoApp';
+ import ToDoApp from './ToDoApp/ToDoApp';
+ import ColorPicker from './ColorPicker/ColorPicker';
 
 function App() {
 
@@ -117,7 +118,9 @@ function App() {
       {/* NINTH PART
       <OnChange></OnChange> */}
 
-      <ToDoApp></ToDoApp>
+      {/* <ToDoApp></ToDoApp> */}
+
+      <ColorPicker></ColorPicker>
 
     </>
   );
