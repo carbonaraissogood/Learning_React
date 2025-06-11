@@ -26,13 +26,7 @@ function ToDoApp() {
     setAddItem('');
     // setIsDelete(false);
 
-    function deleteThis() {
-      return addItem.map()
-    }
-
-    if(key==='hello') {
-      const newTasks = addItem.filter()
-    }
+    
   }
 
   return(
