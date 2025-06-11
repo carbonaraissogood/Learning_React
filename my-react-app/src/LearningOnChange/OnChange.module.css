@@ -1,0 +1,95 @@
+body {
+  background-color: rgb(243, 165, 180);
+}
+
+.container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orderFormContainer {
+  background-color: rgb(255, 228, 232);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: inline-block;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.173);
+  padding: 20px;
+  margin: 10px;
+  max-width: 500px;
+  width: 80%;
+  align-items: center;
+}
+
+input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.orderForm {
+  text-align: center;
+  font-size: xx-large;
+  color: rgb(246, 145, 162);
+}
+
+.nameInput,
+.quantityInput,
+.commentInput,
+.addressInput {
+  width: 90%;
+  background-color: pink;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+
+  display: grid;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.nameInput:focus,
+.quantityInput:focus,
+.commentInput:focus,
+.addressInput:focus,
+.paymentMenu:focus {
+  outline: none;  /* Remove default focus outline */
+  border: 2px solid rgb(250, 138, 157);  /* Add visible border on focus */
+  transition: border-color 0.5s ease;  /* Optional: smooth transition */
+}
+
+.paymentMenu {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 99%;
+  background-color: pink;
+  padding: 10px 20px;
+  border-radius: 10px;
+
+  display: grid;
+  margin: 0 auto;
+}
+
+.submitButton {
+  font-size: medium;
+  background-color: pink;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+
+  display: grid;
+  margin: 0 auto;
+
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: rgb(239, 150, 164);
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.173);
+}
+
+.errorMessage {
+  font-size: 15px;
+  color: red;
+  margin: 0;
+  padding-left: 10px;
+}

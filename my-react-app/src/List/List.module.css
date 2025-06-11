@@ -1,0 +1,23 @@
+.listCategory {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  background-color: lightgoldenrodyellow;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin: 0;
+  border: 2px solid pink;
+}  
+
+.listItems {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  background-color: aquamarine;
+  border-radius: 15px;
+  padding: 10px 60px;
+  margin: 0;
+}
+
+.listItems li:hover {
+  color: rgb(244, 101, 125);
+  cursor: pointer;
+}
