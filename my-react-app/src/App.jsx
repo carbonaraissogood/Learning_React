@@ -12,8 +12,11 @@ import './styles/index.css';
 // import MyComponent from './MyComponent';
 // import Counter from './Counter/Counter';
 // import OnChange from './LearningOnChange/OnChange.jsx'
- import ToDoApp from './ToDoApp/ToDoApp';
- import ColorPicker from './ColorPicker/ColorPicker';
+import ToDoApp from './ToDoApp/ToDoApp.jsx'
+// import ColorPicker from './ColorPicker/ColorPicker';
+// import MyComponent from './MyComponent1/MyComponent';
+// import MyComponent from './MyComponent2/MyComponent';
+// import MyComponent from './Cars_Ver2/MyComponent';
 
 function App() {
 
@@ -115,12 +118,18 @@ function App() {
       <Counter></Counter> */}
 
 
-      {/* NINTH PART
-      <OnChange></OnChange> */}
+      {/* NINTH PART */}
+      {/* <OnChange></OnChange> */}
 
       {/* <ToDoApp></ToDoApp> */}
 
-      <ColorPicker></ColorPicker>
+      {/* <ColorPicker></ColorPicker> */}
+
+      {/* <MyComponent></MyComponent> */}
+
+      {/* <MyComponent></MyComponent> */}
+
+      <ToDoApp></ToDoApp>
 
     </>
   );
