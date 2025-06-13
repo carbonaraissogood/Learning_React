@@ -1,73 +1,111 @@
 import { useState } from "react";
+import styles from './TodoApp.module.css';
 
 function ToDoApp() {
-  const [isAdding, setIsAdding] = useState(false);
-  const [addItem, setAddItem] = useState(['']);
-  const [isSubmit, setIsSubmit] = useState(false);
+  const [newItem, setNewItem] = useState('');
+  const [todoItems, setTodoItems] = useState([]);
 
-  const [isDelete, setIsDelete] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editItem, setEditItem] = useState('');
+  const [editIndex, setEditIndex] = useState(null);
 
-  function handleIsAddingChange() {
-    setIsAdding(true);
+  function handleNewItemChange(event) {
+    setNewItem(event.target.value);
   }
 
-  function handleAddItemChange(event) {
-    setAddItem(event.target.value);
+  function handleAddItemChange() {
+    setTodoItems(prevTodoItems => [...prevTodoItems, newItem]);
+    setNewItem('');
   }
 
-  function handleSubmitChange() {
-    setIsSubmit(true);
-    setIsAdding(false);
-    setIsDelete(true);
+  function handleDeleteItem(index) {
+    setTodoItems(prevTodoItems => prevTodoItems.filter((__, i) => i !== index));
   }
 
-  function handleIsDeleteChange() {
-    setIsDelete(true);
-    setAddItem('');
-    // setIsDelete(false);
+  function handleIsEditing(index) {
+    setIsEditing(true);
+    setEditIndex(index)
+    setEditItem(todoItems[index])
+  }
 
-    
+  function handleEditItem(event) {
+    setEditItem(event.target.value);
+  }
+
+  function handleEditSubmit(editIndex) {
+    const updatedItems = [...todoItems];
+    updatedItems[editIndex] = editItem;
+
+    setTodoItems(updatedItems);
+
+    setIsEditing(false);
+    setEditIndex(null);
+  }
+
+  function handleEditCancel() {
+    setIsEditing(false);
   }
 
   return(
-    <div>
+    <div className={styles.container}>
 
-      <button onClick={handleIsAddingChange}>Add</button>
+      <h1>Todo App</h1>
 
-      {isAdding && (
-        <div>
-          <input
-            type="text"
-            value={addItem}
-            onChange={handleAddItemChange}
-          />
+      <input
+        type="text"
+        value={newItem}
+        onChange={handleNewItemChange}
+      />
 
-          <button 
-            onClick={handleSubmitChange}>Submit
-          </button> 
+      <button 
+        className={styles.addButton}
+        onClick={handleAddItemChange}>Add</button> <br />
 
-        </div>)
-      }
-      
-      {isSubmit && (
-        <div>
+      {todoItems.length > 0 && (
+        <ul>
 
-          <ul key='hello'>
+          {todoItems.map((item, index) => (
+            <li key={index}>
 
-            <h3>{addItem}</h3>
+              {item}
 
-            {isDelete && <button onClick={handleIsDeleteChange}>
-              Delete
-            </button> }
+              <button
+                className={styles.deleteButton} 
+                onClick={() => handleDeleteItem(index)}>Delete</button>
 
-          </ul>
+              <button
+                className={styles.editButton} 
+                onClick={() => handleIsEditing(index)}>Edit</button>
 
-        </div>
-      )}
+              {isEditing && editIndex === index && (
+                <div className={styles.editInput}>
+                  <input
+                    type="text"
+                    value={editItem}
+                    onChange={handleEditItem}
+                  /> <br />
 
-      
+                  <div className={styles.buttonContainer}>
+                    <button 
+                      className={styles.cancelButton}
+                      onClick={handleEditCancel}>
+                        Cancel
+                    </button>
 
+                    <button
+                      className={styles.cancelButton}
+                      onClick={() => handleEditSubmit(index)}>
+                        Confirm
+                    </button> <br />
+                  </div>
 
+                </div>
+                
+              )}
+
+            </li>))}
+
+        </ul>)}
 
     </div>
   );
