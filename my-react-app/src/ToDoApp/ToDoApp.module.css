@@ -1,0 +1,83 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: pink;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 60%;
+  height: 80vh;
+  background-color: aqua;
+  box-shadow: 3px 3px #7d7d7d;
+  border-radius: 20px;
+  margin: 10% auto;
+}
+
+input {
+  max-width: 300px;
+  width: 80%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.editInput {
+  width: 300px;
+}
+
+.addButton {
+  background-color: pink;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  padding: 10px 50px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(255, 157, 173);
+  box-shadow: 3px 3px #7d7d7d;
+}
+
+.deleteButton,
+.editButton {
+  background-color: pink;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancelButton,
+.confirmButton {
+  background-color: pink;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancelButton {
+  margin-right: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
