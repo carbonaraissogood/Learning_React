@@ -1,0 +1,177 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  color: palevioletred;
+  text-align: center;
+  font-size: 40px;
+}
+
+input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-width: 600px;
+  width: 90%;
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  border-radius: 15px;
+  border-color: pink;
+  margin-top: 0;
+}
+
+.submitButton {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(248, 248, 233);
+
+  padding: 15px;
+  margin-top: 10px;
+  background-color: palevioletred;
+  border-radius: 15px;
+  border: none;
+}
+
+.cardContainer {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  width: 90%;
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.inputGroup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+p {
+  color: palevioletred;
+  margin-top: 0;
+}
+
+/* TABLE CONTAINER CSS */
+
+.tableContainer {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800ox;
+  width: 80%;
+}
+
+th, tbody {
+  padding: 5px 10px;
+}
+
+.deleteButton,
+.editButton {
+  padding: 10px;
+  background-color: palevioletred;
+  border-radius: 12px;
+  border: none;
+  margin: 2px;
+
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(248, 248, 233);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 40px;
+  position: relative;
+  min-width: 300px;
+}
+
+.cancelButton,
+.confirmDeleteButton {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(248, 248, 233);
+
+  padding: 15px;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  background-color: palevioletred;
+  border-radius: 15px;
+  border: none;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+}
+
+.confirmationMessage {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+
+  width: 100%;
+}
+
+.modalInputGroup {
+  padding: 10px 20px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.modalInputGroup input {
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.confirmEditButton,
+.cancelEditButton {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(248, 248, 233);
+
+  padding: 15px;
+  margin-left: 15px;
+  background-color: palevioletred;
+  border-radius: 15px;
+  border: none;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+}
