@@ -2,7 +2,7 @@
 // import Footer from './Footer.jsx';
 // import Food from './Food.jsx'
 // import Card from './Card.jsx';
-import './styles/index.css';
+import './index.css';
 // import Button from './Button1/Button.jsx';
 // import Student from './Student';
 // import UserGreeting from './UserGreeting/UserGreeting';
