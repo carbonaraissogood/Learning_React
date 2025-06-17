@@ -18,16 +18,16 @@
 
 .firstName,
 .lastName {
-  width: 150px;
+  width: 100px;
 }
 
 .middleName {
-  width: 70px;
+  width: 120px;
   margin-top: 10px;
 }
 
 .suffix {
-  width: 40px;
+  width: 85px;
 }
 
 .address {
@@ -51,7 +51,7 @@ input {
   max-width: 500px;
   width: 85%;
   padding: 10px 20px;
-  font-size: .6rem;
+  font-size: 10px;
   border-radius: 10px;
   border-color: pink;
 }
@@ -154,7 +154,7 @@ th, tbody {
 }
 
 .editContainer input {
-  font-size: 0.8rem;
+  font-size: 10px;
 }
 
 .modalOverlay {
@@ -184,13 +184,8 @@ th, tbody {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-  width: 100%;
   padding: 0 0.1rem;  /* Add horizontal padding */
   box-sizing: border-box;  /* Include padding in width calculation */
-}
-
-.editMiddleName {
-  margin-right: 100px;
 }
 
 .modalInputGroup input {
@@ -200,6 +195,22 @@ th, tbody {
   border: 1px solid #ccc;
   margin: 0.5rem 0;
   box-sizing: border-box;
+}
+
+.modalInputGroup .MiddleName {
+  width: 150px;  /* Match the width of the main form middle name */
+  margin-right: 5px;
+}
+
+.modalInputGroup .firstName,
+.modalInputGroup .lastName {
+  width: 105px;  /* Match the width of the main form first/last name */
+  margin-right: 5px;
+}
+
+.modalInputGroup .suffix {
+  width: 100px;  /* Match the width of the main form suffix */
+  margin-right: 5px;
 }
 
 .confirmEditButton,
