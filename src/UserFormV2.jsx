@@ -54,7 +54,29 @@ function UserFormV2() {
   function handleFormDataChange(event) {
     const {name: input, value} = event.target;
 
-    setFormData(prevData => ({...prevData, [input]: value}));
+    if (input === 'birthdate') {
+    const inputDate = new Date(value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+
+    if (inputDate > today) {
+      setFormData(prevData => ({
+        ...prevData,
+        birthdate: ''
+      }));
+      alert("Please enter a valid birth date (not a future date)");
+    } else {
+      setFormData(prevData => ({
+        ...prevData,
+        birthdate: value
+      }));
+    }
+  } else {
+    setFormData(prevData => ({
+      ...prevData,
+      [input]: value
+    }));
+  }
 
     switch(input) {
       case 'firstName':
@@ -134,10 +156,29 @@ function UserFormV2() {
   function handleEditFormChange(event) {
     const { name: input, value } = event.target;
     
-    setEditFormData(prevData => ({
+    if (input === 'birthdate') {
+    const inputDate = new Date(value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+
+    if (inputDate > today) {
+      setEditFormData(prevData => ({
         ...prevData,
-        [input]: value
+        birthdate: ''
+      }));
+      alert("Please enter a valid birth date (not a future date)");
+    } else {
+      setEditFormData(prevData => ({
+        ...prevData,
+        birthdate: value
+      }));
+    }
+  } else {
+    setEditFormData(prevData => ({
+      ...prevData,
+      [input]: value
     }));
+  }
 
     // Use separate validation states for edit form
     switch(input) {
@@ -490,7 +531,17 @@ function UserFormV2() {
                             </div>
                           </div>
 
-                          <button className={styles.cancelEditButton} onClick={() => setIsEditing(false)}>Cancel</button>
+                          <button
+                            className={styles.cancelEditButton} 
+                            onClick={() => {
+                              setIsEditing(false);
+                              setIsEditFNameFilled(true)
+                              setIsEditLNameFilled(true)
+                              setIsEditAddressFilled(true)
+                              setIsEditBirthdateFilled(true)
+                              setIsEditAddressFilled(true)}}>
+                              Cancel
+                          </button>
 
                           <button className={styles.confirmEditButton} onClick={() => handleConfirmEdit(editIndex)}>Confirm</button>
                           
