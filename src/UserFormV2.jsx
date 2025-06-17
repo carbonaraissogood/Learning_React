@@ -2,15 +2,17 @@ import { useState } from "react";
 import styles from './UserFormV2.module.css';
 
 function UserFormV2() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    age: 0,
-    birthdate: '',
-    address: '',
-    middleName: '',
-    suffix: ''
-  })
+  const [formData, setFormData] = useState(
+    {
+      firstName: '',
+      lastName: '',
+      age: 0,
+      birthdate: '',
+      address: '',
+      middleName: '',
+      suffix: ''
+    }
+)
 
   const [forms, setForms] = useState([]);
 
@@ -139,23 +141,23 @@ function UserFormV2() {
 
     // Use separate validation states for edit form
     switch(input) {
-        case 'firstName':
-            setIsEditFNameFilled(value.trim() !== '');
-            break;
-        case 'lastName':
-            setIsEditLNameFilled(value.trim() !== '');
-            break;
-        case 'address':
-            setIsEditAddressFilled(value.trim() !== '');
-            break;
-        case 'age':
-            setIsEditAgeFilled(value > 0);
-            break;
-        case 'birthdate':
-          setIsEditBirthdateFilled(value !== '');
+      case 'firstName':
+          setIsEditFNameFilled(value.trim() !== '');
           break;
-        default:
-            break;
+      case 'lastName':
+          setIsEditLNameFilled(value.trim() !== '');
+          break;
+      case 'address':
+          setIsEditAddressFilled(value.trim() !== '');
+          break;
+      case 'age':
+          setIsEditAgeFilled(value > 0);
+          break;
+      case 'birthdate':
+        setIsEditBirthdateFilled(value !== '');
+        break;
+      default:
+        break;
     }
 
     // Check validity using the current field value and existing edit form data
@@ -164,10 +166,10 @@ function UserFormV2() {
     };
 
     const isEditValid = 
-        updatedEditFormData.firstName.trim() !== '' &&
-        updatedEditFormData.lastName.trim() !== '' &&
-        updatedEditFormData.address.trim() !== '' &&
-        updatedEditFormData.age > 0;
+      updatedEditFormData.firstName.trim() !== '' &&
+      updatedEditFormData.lastName.trim() !== '' &&
+      updatedEditFormData.address.trim() !== '' &&
+      updatedEditFormData.age > 0;
 
     console.log(isEditValid);                
 
@@ -198,95 +200,112 @@ function UserFormV2() {
             <h1>User Form</h1>
 
             <div className={styles.inputGroup}>
-              <input
-                type="text"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleFormDataChange}
-                placeholder="First Name"
-              />
 
-              {!isFNameFilled && (
-                <p>Please enter your first name.</p>
-              )}
+              <div className={styles.nameInput}>
+                <div className={styles.inputContainer}>
+                  <input
+                    className={styles.firstName}
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleFormDataChange}
+                    placeholder="First Name"
+                  />
 
-              <br />
+                  {!isFNameFilled && (
+                    <p className={styles.warning}>Please enter your first name.</p>
+                  )}
+                </div>
 
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Enter your last name"
-                value={formData.lastName}
-                onChange={handleFormDataChange}
-              />
+                <div className={styles.inputContainer}>
 
-              {!isLNameFilled && (
-                <p>Please enter your last name.</p>
-              )}
+                  <input
+                    className={styles.middleName}
+                    type="text"
+                    name="middleName"
+                    placeholder="Middle Name"
+                    value={formData.middleName}
+                    onChange={handleFormDataChange}
+                  />
 
-              <br />
+                  <p className={styles.optionalMessage}>Optional</p>
+                </div>
 
-              <input
-                type="number"
-                name="age"
-                placeholder="Enter your age"
-                value={formData.age}
-                onChange={handleFormDataChange}
-              />
+                <div  className={styles.inputContainer}>
+                  <input
+                    className={styles.lastName}
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleFormDataChange}
+                  />
 
-              {!isAgeFilled && (
-                <p>Please enter your age.</p>
-              )}
+                  {!isLNameFilled && (
+                    <p className={styles.warning}>Please enter your last name.</p>
+                  )}
+                </div>
 
-              <br />
+                <div  className={styles.inputContainer}>
+                  <input
+                    className={styles.suffix}
+                    type="text"
+                    name="suffix"
+                    placeholder="Suffix"
+                    value={formData.suffix}
+                    onChange={handleFormDataChange}
+                  />
 
-              <input
-                type="date"
-                name="birthdate"
-                placeholder="Enter your birthdate"
-                value={formData.birthdate}
-                onChange={handleFormDataChange}
-              />
+                  <p className={styles.optionalMessage}>Optional</p>
+                </div>
 
-              {!isBirthdateFilled && (
-                <p>Please enter your birthdate.</p>
-              )}
+              </div>
 
-              <br />
+              <div className={styles.ageAndBirthdate}>
 
-              <input
-                type="text"
-                name="address"
-                placeholder="Enter your address"
-                value={formData.address}
-                onChange={handleFormDataChange}
-              />
+                <div  className={styles.inputContainer}>
+                  <input
+                    type="number"
+                    name="age"
+                    placeholder="Age"
+                    value={formData.age}
+                    onChange={handleFormDataChange}
+                  />
 
-              {!isAddressFilled && (
-                <p>Please enter your address.</p>
-              )}
+                  {!isAgeFilled && (
+                    <p className={styles.warning}>Please enter your age.</p>
+                  )}
+                </div>
 
-              <br />
+                <div  className={styles.inputContainer}>
+                  <input
+                    type="date"
+                    name="birthdate"
+                    placeholder="Enter your birthdate"
+                    value={formData.birthdate}
+                    onChange={handleFormDataChange}
+                  />
 
-              <input
-                type="text"
-                name="middleName"
-                placeholder="Enter your middle name"
-                value={formData.middleName}
-                onChange={handleFormDataChange}
-              />
+                  {!isBirthdateFilled && (
+                    <p className={styles.warning}>Please enter your birthdate.</p>
+                  )}
+                </div>
+              </div>
 
-              <br />
+              <div  className={styles.inputContainer}>
+                <input
+                  className={styles.address}
+                  type="text"
+                  name="address"
+                  placeholder="Enter your address"
+                  value={formData.address}
+                  onChange={handleFormDataChange}
+                />
 
-              <input
-                type="text"
-                name="suffix"
-                placeholder="Enter your suffix"
-                value={formData.suffix}
-                onChange={handleFormDataChange}
-              />
-
-              <br />
+                {!isAddressFilled && (
+                  <p className={styles.warning}>Please enter your address.</p>
+                )}
+              </div>
 
               <button className={styles.submitButton} onClick={handleSubmit}>Submit</button>
             </div>
@@ -320,11 +339,13 @@ function UserFormV2() {
 
                     <tbody>
                       <tr key={index}>
-
+                        
                         <td>{form.firstName}</td>
                         <td>{form.middleName || 'N/A'}</td>
                         <td>{form.lastName}</td>
                         <td>{form.suffix || 'N/A'}</td>
+
+
                         <td>{form.age}</td>
                         <td>{form.birthdate}</td>
                         <td>{form.address}</td>
@@ -361,90 +382,119 @@ function UserFormV2() {
 
                     {isEditModalOpen && isEditing && index===editIndex && (
                       <div className={styles.modalOverlay}>
-
                         <div className={styles.modalContent}>
-
                           <div className={styles.modalInputGroup}>
+
                             <h1>Edit User Information</h1>
 
-                            <input
-                              type="text"
-                              name="firstName"
-                              placeholder="Enter your first name"
-                              value={editFormData.firstName}
-                              onChange={handleEditFormChange}
-                            />
+                            <div className={styles.inputGroup}>
+                              <div className={styles.nameInput}>
 
-                            {!isEditFNameFilled && (
-                              <p>Please enter your first name.</p>
-                            )}
+                                <div className={styles.editContainer}>
+                                  <input
+                                    className={styles.firstName}
+                                    type="text"
+                                    name="firstName"
+                                    value={editFormData.firstName}
+                                    onChange={handleEditFormChange}
+                                    placeholder="First Name"
+                                  />
 
-                            <input
-                              type="text"
-                              name="lastName"
-                              placeholder="Enter your last name"
-                              value={editFormData.lastName}
-                              onChange={handleEditFormChange}
-                            />
+                                  {!isEditFNameFilled && (
+                                    <p className={styles.warning}>Please enter your first name.</p>
+                                  )}
+                                </div>
 
-                            {!isEditLNameFilled && (
-                              <p>Please enter your last name.</p>
-                            )}
+                                <div className={styles.editContainer}>
 
-                            <input
-                              type="number"
-                              name="age"
-                              placeholder="Enter your age"
-                              value={editFormData.age}
-                              onChange={handleEditFormChange}
-                            />
+                                  <input
+                                    className={styles.editMiddleName}
+                                    type="text"
+                                    name="middleName"
+                                    placeholder="Middle Name"
+                                    value={editFormData.middleName}
+                                    onChange={handleEditFormChange}
+                                  />
 
-                            {!isEditAgeFilled && (
-                              <p>Please enter your age.</p>
-                            )}
+                                  <p className={styles.optionalMessage}>Optional</p>
+                                </div>
 
-                            <input
-                              type="date"
-                              name="birthdate"
-                              placeholder="Enter your birthdate"
-                              value={editFormData.birthdate}
-                              onChange={handleEditFormChange}
-                            />
+                                <div  className={styles.editContainer}>
+                                  <input
+                                    className={styles.lastName}
+                                    type="text"
+                                    name="lastName"
+                                    placeholder="Last Name"
+                                    value={editFormData.lastName}
+                                    onChange={handleEditFormChange}
+                                  />
 
-                            {!isEditBirthdateFilled && (
-                              <p>Please enter your birthdate.</p>
-                            )}
+                                  {!isEditLNameFilled && (
+                                    <p className={styles.warning}>Please enter your last name.</p>
+                                  )}
+                                </div>
 
-                            <input
-                              type="text"
-                              name="address"
-                              placeholder="Enter your address"
-                              value={editFormData.address}
-                              onChange={handleEditFormChange}
-                            />
+                                <div  className={styles.editContainer}>
+                                  <input
+                                    className={styles.suffix}
+                                    type="text"
+                                    name="suffix"
+                                    placeholder="Suffix"
+                                    value={editFormData.suffix}
+                                    onChange={handleEditFormChange}
+                                  />
 
-                            {!isEditAddressFilled && (
-                              <p>Please enter your address.</p>
-                            )}
+                                  <p className={styles.optionalMessage}>Optional</p>
+                                </div>
 
-                            <input
-                              type="text"
-                              name="middleName"
-                              placeholder="Enter your middle name"
-                              value={editFormData.middleName}
-                              onChange={handleEditFormChange}
-                            />
+                              </div>
 
-                            <input
-                              type="text"
-                              name="suffix"
-                              placeholder="Enter your suffix"
-                              value={editFormData.suffix}
-                              onChange={handleEditFormChange}
-                            />
+                              <div className={styles.ageAndBirthdate}>
 
-                            <br />
+                                <div  className={styles.editContainer}>
+                                  <input
+                                    type="number"
+                                    name="age"
+                                    placeholder="Age"
+                                    value={editFormData.age}
+                                    onChange={handleEditFormChange}
+                                  />
 
+                                  {!isEditAgeFilled && (
+                                    <p className={styles.warning}>Please enter your age.</p>
+                                  )}
+                                </div>
+
+                                <div  className={styles.editContainer}>
+                                  <input
+                                    type="date"
+                                    name="birthdate"
+                                    placeholder="Enter your birthdate"
+                                    value={editFormData.birthdate}
+                                    onChange={handleEditFormChange}
+                                  />
+
+                                  {!isEditBirthdateFilled && (
+                                    <p className={styles.warning}>Please enter your birthdate.</p>
+                                  )}
+                                </div>
+                              </div>
+
+                              <div  className={styles.editContainer}>
+                                <input
+                                  className={styles.address}
+                                  type="text"
+                                  name="address"
+                                  placeholder="Enter your address"
+                                  value={editFormData.address}
+                                  onChange={handleEditFormChange}
+                                />
+
+                                {!isEditAddressFilled && (
+                                  <p className={styles.warning}>Please enter your address.</p>
+                                )}
+                              </div>
+                            </div>
                           </div>
 
                           <button className={styles.cancelEditButton} onClick={() => setIsEditing(false)}>Cancel</button>
