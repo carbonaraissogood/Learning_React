@@ -223,7 +223,7 @@ function UserFormV2() {
                     className={styles.middleName}
                     type="text"
                     name="middleName"
-                    placeholder="Middle Name"
+                    placeholder="Middle Name (Optional)"
                     value={formData.middleName}
                     onChange={handleFormDataChange}
                   />
@@ -249,7 +249,7 @@ function UserFormV2() {
                     className={styles.suffix}
                     type="text"
                     name="suffix"
-                    placeholder="Suffix"
+                    placeholder="Suffix (Optional)"
                     value={formData.suffix}
                     onChange={handleFormDataChange}
                   />
@@ -404,10 +404,10 @@ function UserFormV2() {
                                 <div className={styles.editContainer}>
 
                                   <input
-                                    className={styles.editMiddleName}
+                                    className={styles.MiddleName}
                                     type="text"
                                     name="middleName"
-                                    placeholder="Middle Name"
+                                    placeholder="Middle Name (Optional)"
                                     value={editFormData.middleName}
                                     onChange={handleEditFormChange}
                                   />
@@ -434,8 +434,8 @@ function UserFormV2() {
                                     className={styles.suffix}
                                     type="text"
                                     name="suffix"
-                                    placeholder="Suffix"
-                                    value={editFormData.suffix}
+                                    placeholder="Suffix (Optional)"
+                                    value={editFormData.suffixEdit}
                                     onChange={handleEditFormChange}
                                   />
                                 </div>
