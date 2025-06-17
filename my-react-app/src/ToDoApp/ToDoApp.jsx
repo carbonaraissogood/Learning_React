@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from './TodoApp.module.css';
+import styles from './ToDoApp.module.css';
 
 function ToDoApp() {
   const [newItem, setNewItem] = useState('');

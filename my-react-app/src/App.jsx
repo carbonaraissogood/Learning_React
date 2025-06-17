@@ -123,7 +123,7 @@ function App() {
       {/* NINTH PART */}
       {/* <OnChange></OnChange> */}
 
-      {/* <ToDoApp></ToDoApp> */}
+      <ToDoApp></ToDoApp>
 
       {/* <ColorPicker></ColorPicker> */}
 
