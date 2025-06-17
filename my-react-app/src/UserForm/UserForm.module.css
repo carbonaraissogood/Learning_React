@@ -1,0 +1,12 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+input {
+  max-width: 300px;
+  width: 80%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border-color: pink;
+}
