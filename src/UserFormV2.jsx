@@ -227,8 +227,6 @@ function UserFormV2() {
                     value={formData.middleName}
                     onChange={handleFormDataChange}
                   />
-
-                  <p className={styles.optionalMessage}>Optional</p>
                 </div>
 
                 <div  className={styles.inputContainer}>
@@ -255,8 +253,6 @@ function UserFormV2() {
                     value={formData.suffix}
                     onChange={handleFormDataChange}
                   />
-
-                  <p className={styles.optionalMessage}>Optional</p>
                 </div>
 
               </div>
@@ -416,7 +412,6 @@ function UserFormV2() {
                                     onChange={handleEditFormChange}
                                   />
 
-                                  <p className={styles.optionalMessage}>Optional</p>
                                 </div>
 
                                 <div  className={styles.editContainer}>
@@ -443,8 +438,6 @@ function UserFormV2() {
                                     value={editFormData.suffix}
                                     onChange={handleEditFormChange}
                                   />
-
-                                  <p className={styles.optionalMessage}>Optional</p>
                                 </div>
 
                               </div>
