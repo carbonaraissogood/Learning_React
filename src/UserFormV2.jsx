@@ -55,28 +55,34 @@ function UserFormV2() {
     const {name: input, value} = event.target;
 
     if (input === 'birthdate') {
-    const inputDate = new Date(value);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+      const inputDate = new Date(value);
+      const today = new Date();
 
-    if (inputDate > today) {
+      today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+
+      if (inputDate > today) {
+        setFormData(prevData => ({
+          ...prevData,
+          birthdate: ''
+        }));
+        alert("Please enter a valid birth date (not a future date)");
+
+        return;
+      } 
+      
+      const age = calculateAge(inputDate, today);
+
       setFormData(prevData => ({
         ...prevData,
-        birthdate: ''
+        birthdate: value,
+        age: age
       }));
-      alert("Please enter a valid birth date (not a future date)");
     } else {
       setFormData(prevData => ({
         ...prevData,
-        birthdate: value
+        [input]: value
       }));
     }
-  } else {
-    setFormData(prevData => ({
-      ...prevData,
-      [input]: value
-    }));
-  }
 
     switch(input) {
       case 'firstName':
@@ -107,6 +113,26 @@ function UserFormV2() {
                     formData.birthdate.trim() !== '';
 
     setIsEligibleToSubmit(isValid);
+  }
+
+  function calculateAge(birthdate, today) {
+    const verifiedBirthdate = new Date(birthdate);
+
+    let age = today.getFullYear() - verifiedBirthdate.getFullYear();
+    const diffMonth = today.getMonth() - verifiedBirthdate.getMonth();
+    const diffDay = today.getDate() - verifiedBirthdate.getDate();
+
+    if (diffMonth < 0 || (diffMonth === 0 && diffDay < 0)) {
+      age--;
+    }
+
+    console.log(`Age: ${age}`);
+
+    return age;
+
+    // setFormData(prevData => ({
+    //   ...prevData, age: ageFromBirthdate
+    // }));
   }
 
   function handleSubmit() {
@@ -158,28 +184,33 @@ function UserFormV2() {
     
     if (input === 'birthdate') {
     const inputDate = new Date(value);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+      const today = new Date();
 
-    if (inputDate > today) {
+      today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+
+      if (inputDate > today) {
+        setEditFormData(prevData => ({
+          ...prevData,
+          birthdate: ''
+        }));
+        alert("Please enter a valid birth date (not a future date)");
+
+        return;
+      } 
+      
+      const age = calculateAge(inputDate, today);
+
       setEditFormData(prevData => ({
         ...prevData,
-        birthdate: ''
+        birthdate: value,
+        age: age
       }));
-      alert("Please enter a valid birth date (not a future date)");
     } else {
       setEditFormData(prevData => ({
         ...prevData,
-        birthdate: value
+        [input]: value
       }));
-    }
-  } else {
-    setEditFormData(prevData => ({
-      ...prevData,
-      [input]: value
-    }));
   }
-
     // Use separate validation states for edit form
     switch(input) {
       case 'firstName':
