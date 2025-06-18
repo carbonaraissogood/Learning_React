@@ -90,7 +90,7 @@ function UserFormV2() {
         setIsAddressFilled(value.trim() !== '');
         break;
       case 'age':
-        setIsAgeFilled(value > 0);
+        setIsAgeFilled(value > 0 && value.trim() !== '');
         break;
       case 'birthdate':
         setIsBirthdateFilled(value !== '');
@@ -192,7 +192,7 @@ function UserFormV2() {
           setIsEditAddressFilled(value.trim() !== '');
           break;
       case 'age':
-          setIsEditAgeFilled(value > 0);
+          setIsEditAgeFilled(value > 0 && value.trim() !== '');
           break;
       case 'birthdate':
         setIsEditBirthdateFilled(value !== '');
@@ -537,7 +537,7 @@ function UserFormV2() {
                               setIsEditing(false);
                               setIsEditFNameFilled(true)
                               setIsEditLNameFilled(true)
-                              setIsEditAddressFilled(true)
+                              setIsEditAgeFilled(true)
                               setIsEditBirthdateFilled(true)
                               setIsEditAddressFilled(true)}}>
                               Cancel
