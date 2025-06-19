@@ -20,6 +20,10 @@ import ToDoApp from './ToDoApp/ToDoApp.jsx'
 import UserForm from './UserForm/UserForm.jsx';
 import UserFormV2 from './UserFormV2.jsx';
 
+import Timer from './Timer_UseEffect/Timer.jsx';
+
+import ComponentA from './Components/ComponentA.jsx';
+
 function App() {
 
   const fruits = [{id: 1, name: 'apple', calories: 95},
@@ -135,7 +139,11 @@ function App() {
 
       {/* <UserForm></UserForm> */}
 
-      <UserFormV2></UserFormV2>
+      {/* <UserFormV2></UserFormV2> */}
+
+      {/* <Timer></Timer> */}
+
+      <ComponentA></ComponentA>
 
     </>
   );
