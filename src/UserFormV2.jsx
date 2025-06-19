@@ -12,7 +12,7 @@ function UserFormV2() {
       middleName: '',
       suffix: ''
     }
-)
+  )
 
   const [forms, setForms] = useState([]);
 
