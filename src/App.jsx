@@ -139,11 +139,11 @@ function App() {
 
       {/* <UserForm></UserForm> */}
 
-      {/* <UserFormV2></UserFormV2> */}
+      <UserFormV2></UserFormV2>
 
       {/* <Timer></Timer> */}
 
-      <ComponentA></ComponentA>
+      {/* <ComponentA></ComponentA> */}
 
     </>
   );
